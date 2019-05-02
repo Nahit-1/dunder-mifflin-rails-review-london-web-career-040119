@@ -8,30 +8,31 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
-  def update  
+  def update
     @employee = Employee.find(params[:id])
     @employee.update(employee_params)
     redirect_to employee_path
-  end 
+  end
 
   def new
     @employee = Employee.new
   end
 
-  def create 
+  def create
     @employee = Employee.new(employee_params)
     @employee.save
     redirect_to employees_path
-  end 
+  end
 
   def show
     @employee = Employee.find(params[:id])
   end
 
-  private 
+  private
 
   def employee_params
     params.require(:employee).permit!
-  end 
+  end
+
 
 end
